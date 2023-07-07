@@ -1,7 +1,7 @@
 resource "aws_spot_instance_request" "spot" {
   count         = var.SPOT_INSTANCE_COUNT
   wait_for_fulfillment = true
-  ami           = data.aws_ami.ansible-ami.name
+  ami           = data.aws_ami.ansible-ami.id
   spot_type     = "persistent"
   instance_type = var.INSTANCE_TYPE
   subnet_id              = var.SUBNET_IDS[0]
