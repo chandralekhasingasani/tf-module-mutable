@@ -6,7 +6,7 @@ resource "aws_lb_target_group" "test" {
   health_check {
     healthy_threshold = 3
     enabled = true
-    interval = 5
+    interval = 10
     path = "/health"
     port = var.PORT
     unhealthy_threshold = 3
