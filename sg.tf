@@ -11,6 +11,14 @@ resource "aws_security_group" "allow_tls" {
     cidr_blocks = [var.CIDR_BLOCK,var.WORKSTATION_IP]
   }
 
+  ingress {
+    description = "Allow 8080"
+    from_port   = var.PORT
+    to_port     = var.PORT
+    protocol    = "tcp"
+    cidr_blocks = [var.CIDR_BLOCK]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
