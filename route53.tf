@@ -13,5 +13,5 @@ resource "aws_route53_record" "component" {
   name    = "${var.COMPONENT}-${var.ENV}"
   type    = "CNAME"
   ttl     = 300
-  records = [aws_lb.test.arn]
+  records = [aws_lb.test.dns_name]
 }
