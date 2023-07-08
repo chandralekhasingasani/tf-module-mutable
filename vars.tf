@@ -17,3 +17,4 @@ variable "DBTYPE" {
 variable "DOCDB_ENDPOINT" {
   default = "null"
 }
+variable "PRIVATE_HOSTED_ZONE_ID" {}
