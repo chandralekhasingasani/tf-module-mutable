@@ -43,7 +43,8 @@ resource "null_resource" "connect" {
       host     = element(local.ALL_INSTANCE_IPS,count.index)
     }
     inline = [
-      "ansible-pull -U https://github.com/chandralekhasingasani/practice-ansible.git -e HOST=localhost -e ROLE_NAME=${var.COMPONENT} -e ENV=${var.ENV} roboshop.yml"
+      "ansible-galaxy collection install community.general",
+      "ansible-pull -U https://github.com/chandralekhasingasani/practice-ansible.git roboshop.yml -e HOST=localhost -e ROLE_NAME=${var.COMPONENT} -e ENV=${var.ENV} "
     ]
   }
 }
