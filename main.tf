@@ -40,7 +40,7 @@ resource "null_resource" "connect" {
       type     = "ssh"
       user     = jsondecode(data.aws_secretsmanager_secret_version.roboshop.secret_string)["SSH_USERNAME"]
       password = jsondecode(data.aws_secretsmanager_secret_version.roboshop.secret_string)["SSH_PASSWORD"]
-      host     = element(local.ALL_INSTANCE_IDS,count.index)
+      host     = element(local.ALL_INSTANCE_IPS,count.index)
     }
     inline = [
       "ansible-pull -U https://github.com/chandralekhasingasani/practice-ansible.git -e HOST=localhost -e ROLE_NAME=${var.COMPONENT} -e ENV=${var.ENV}"
