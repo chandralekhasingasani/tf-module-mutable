@@ -11,3 +11,9 @@ variable "IAM_INSTANCE_PROFILE" {}
 variable "PORT" {}
 variable "IS_ALB_INTERNAL" {}
 variable "CIDR_BLOCK_ELB_ACCESS" {}
+variable "DBTYPE" {
+  default = null
+}
+variable "DOCDB_ENDPOINT" {
+  default = null
+}

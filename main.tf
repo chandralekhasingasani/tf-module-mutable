@@ -44,7 +44,7 @@ resource "null_resource" "connect" {
     }
     inline = [
       "ansible-galaxy collection install community.general",
-      "ansible-pull -U https://github.com/chandralekhasingasani/practice-ansible.git roboshop.yml -e HOST_NAME=localhost -e ROLE_NAME=${var.COMPONENT} -e ENV=${var.ENV} "
+      "ansible-pull -U https://github.com/chandralekhasingasani/practice-ansible.git roboshop.yml -e HOST_NAME=localhost -e ROLE_NAME=${var.COMPONENT} -e ENV=${var.ENV}  -e DBTYPE=${var.DBTYPE} -e DOCDB_ENDPOINT=${var.DOCDB_ENDPOINT}"
     ]
   }
 }
