@@ -12,7 +12,7 @@ resource "aws_security_group" "allow_tls" {
   }
 
   ingress {
-    description = "Allow 8080"
+    description = "APP"
     from_port   = var.PORT
     to_port     = var.PORT
     protocol    = "tcp"
@@ -47,8 +47,8 @@ resource "aws_security_group" "allow_alb" {
 
   ingress {
     description = "Allow HTTPS"
-    from_port   = var.PORT
-    to_port     = var.PORT
+    from_port   = 443
+    to_port     = 443
     protocol    = "tcp"
     cidr_blocks = var.CIDR_BLOCK_ELB_ACCESS
   }
