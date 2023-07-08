@@ -39,7 +39,7 @@ resource "null_resource" "connect" {
     connection {
       type     = "ssh"
       user     = jsondecode(data.aws_secretsmanager_secret_version.roboshop.secret_string)["SSH_USERNAME"]
-      password = jsondecode(data.aws_secretsmanager_secret_version.roboshop.secret_string)["SSH_USERNAME"]
+      password = jsondecode(data.aws_secretsmanager_secret_version.roboshop.secret_string)["SSH_PASSWORD"]
       host     = element(local.ALL_INSTANCE_IDS,count.index)
     }
     inline = [
