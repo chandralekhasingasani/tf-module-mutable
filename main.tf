@@ -25,7 +25,7 @@ resource "aws_ec2_tag" "example" {
   value         = "${var.ENV}"
 }
 
-resource "aws_ec2_tag" "example" {
+resource "aws_ec2_tag" "monitor" {
   count         = var.SPOT_INSTANCE_COUNT
   resource_id   = element(aws_spot_instance_request.spot.*.spot_instance_id, count.index+1)
   key           = "Monitor"
