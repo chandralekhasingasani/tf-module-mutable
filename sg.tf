@@ -20,7 +20,7 @@ resource "aws_security_group" "allow_tls" {
   }
 
   ingress {
-    description = "APP"
+    description = "PROMETHEUS_IP"
     from_port   = 9100
     to_port     = 9100
     protocol    = "tcp"
@@ -57,14 +57,6 @@ resource "aws_security_group" "allow_alb" {
     description = "Allow HTTPS"
     from_port   = 443
     to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = var.CIDR_BLOCK_ELB_ACCESS
-  }
-
-  ingress {
-    description = "Allow Prometheus"
-    from_port   = var.PROMETHEUS_IP
-    to_port     = var.PROMETHEUS_IP
     protocol    = "tcp"
     cidr_blocks = var.CIDR_BLOCK_ELB_ACCESS
   }
